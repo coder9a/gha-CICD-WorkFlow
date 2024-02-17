@@ -9,7 +9,7 @@ export default async function Home() {
     <main className="main">
       <div>
         <h2>Hello World</h2>
-        <h4>New Version</h4>
+        <p>new text cewefer</p>
       </div>
       <Link href="/about">About</Link>
       <br />
