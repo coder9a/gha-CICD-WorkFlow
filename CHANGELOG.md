@@ -4,6 +4,17 @@
 
 ### Minor Changes
 
+- 8390316: Fixed issue
+- 1f29831: Check commit
+
+### Patch Changes
+
+- 1f778be: Updated text
+
+## 0.2.0
+
+### Minor Changes
+
 - 30fcdf3: Fixed Issue
 
 ### Patch Changes
