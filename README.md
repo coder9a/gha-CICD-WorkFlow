@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Workflow Documentation
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This document provides an in-depth explanation of the project workflow, detailing code management, testing, deployment, and versioning processes. The workflow is meticulously designed to maintain code integrity, security, and seamless integration and deployment operations.
+## Workflow Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The workflow consists of several key stages:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Feature Development**: Developers create feature branches for new development work.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Pull Request Creation**: When a feature is ready for integration, a pull request is opened.
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+3. **Testing**: Automated tests are run on the feature branch, including both custom tests and CodeQL vulnerability checks.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Deployment**: Upon request, feature branches can be deployed to isolated environments for testing.
 
-## Learn More
+5. **Merge to Main**: Once tests pass and code is approved, feature branches are merged into the main branch.
 
-To learn more about Next.js, take a look at the following resources:
+6. **Versioning**: Changes made in feature branches are versioned and documented.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+7. **Release Management**: Upon merging to main, a release process is initiated, generating release notes and updating version numbers.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+8. **Deployment to Staging and Production**: Code changes are deployed to staging for further testing and then to production after manual approval.
 
-## Deploy on Vercel
+## Detailed Workflow Steps
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Feature Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Developers create feature branches for new work.
+
+### Pull Request Creation
+
+1. Developers open pull requests when features are ready for review and integration into the main branch.
+2. Pull requests cannot be directly pushed to the main branch; they must go through the pull request process.
+
+### Testing
+
+1. Automated tests are triggered upon pull request creation.
+2. Tests include custom test workflows and CodeQL vulnerability scans.
+3. Failures in tests prevent the pull request from being merged until issues are addressed.
+
+### Deployment
+
+1. Feature branches can be deployed to isolated environments upon request by adding a specific comment to the pull request (`/deploy`).
+2. AWS is utilized to set up separate environments for testing.
+
+### Merge to Main
+
+1. Once tests pass and code is approved, feature branches are merged into the main branch.
+2. Long-lived feature branches are avoided to maintain continuous integration.
+
+### Versioning
+
+1. Changes made in feature branches are versioned using changeset files.
+2. Versioning follows semantic versioning conventions (major, minor, patch).
+3. Changeset files document the nature of changes made in each feature.
+
+### Release Management
+
+1. Upon merging to the main branch, a versioning pull request is automatically generated.
+2. Versioning pull requests update the app version based on changeset files and generate release notes.
+3. Changeset files are combined into a changelog file.
+4. Versioning pull requests are reviewed and merged into the main branch to create new releases.
+5. GitHub releases are tagged with the generated version numbers.
+
+### Deployment to Staging and Production
+
+1. After merging into the main branch, code changes are deployed to staging for further testing.
+2. Deployment to production requires manual approval.
+3. Production deployments are managed with AWS infrastructure.
+
+## Conclusion
+
+This workflow ensures that code changes are thoroughly tested, versioned, and documented before deployment to production. By automating various steps and utilizing feature flags and isolated environments, the process promotes collaboration and continuous integration while maintaining stability and reliability in the production environment.
