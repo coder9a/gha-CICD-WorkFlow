@@ -1,5 +1,11 @@
 # github-actions-course-demo
 
+## 0.4.0
+
+### Minor Changes
+
+- e6a774e: test change
+
 ## 0.3.0
 
 ### Minor Changes
