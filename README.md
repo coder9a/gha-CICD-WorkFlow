@@ -3,6 +3,7 @@
 ## Introduction
 
 This document provides an in-depth explanation of the project workflow, detailing code management, testing, deployment, and versioning processes. The workflow is meticulously designed to maintain code integrity, security, and seamless integration and deployment operations.
+
 ## Workflow Overview
 
 The workflow consists of several key stages:
