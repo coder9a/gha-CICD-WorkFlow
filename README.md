@@ -1,4 +1,4 @@
-# Workflow Documentation
+# GitHub Actions CICD Workflow
 
 ![cicd-workflow](https://github.com/coder9a/gha-CICD-WorkFlow/assets/42884781/5325141d-de27-4803-941b-6e613cfce2b4)
 
