@@ -9,7 +9,7 @@ export default async function Home() {
     <main className="main">
       <div>
         <h2>Hello World</h2>
-        <p>Test Changeset3</p>
+        <p>Test Changese-v2.0</p>
       </div>
       <Link href="/about">About</Link>
       <br />
